@@ -1,0 +1,29 @@
+{
+  "name": "ytarc",
+  "version": "0.1.0",
+  "description": "Helper script for running yt-dlp for archiving purposes",
+  "private": true,
+  "keywords": [
+    "youtube-dl",
+    "Archiving"
+  ],
+  "homepage": "https://github.com/msikma/ytarc",
+  "repository": "git+https://github.com/msikma/ytarc",
+  "author": "Michiel Sikma <michiel@sikma.org>",
+  "license": "MIT",
+  "scripts": {
+  },
+  "bin": {
+    "ytarc": "cli/index.js"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "devDependencies": {
+  },
+  "dependencies": {
+    "fast-glob": "^3.2.7",
+    "argparse": "^2.0.1",
+    "chalk": "^3.0.0"
+  }
+}
