@@ -11,7 +11,7 @@ const parser = new ArgumentParser({
   description: `Helper utility for running yt-dlp for archiving purposes.`,
   add_help: true
 })
-parser.add_argument('URL', {help: 'Retrieves the latest published movies.', nargs: '+'})
+parser.add_argument('URL', {help: 'URLs to fetch', nargs: '+'})
 parser.add_argument('-v', '--version', {action: 'version', version: pkgData.version})
 
 const args = {...parser.parse_args()}
