@@ -13,7 +13,8 @@ const parser = new ArgumentParser({
 })
 parser.add_argument('URL', {help: 'URLs to fetch', nargs: '+'})
 parser.add_argument('-v', '--version', {action: 'version', version: pkgData.version})
+parser.add_argument('-d', '--date-first', {action: 'store_true', dest: 'dateFirst', help: 'put the date at the start of the filename'})
 
 const args = {...parser.parse_args()}
 
-require('../lib/index.js').archiveURLs(args.URL, {cwd: process.cwd()})
+require('../lib/index.js').archiveURLs(args.URL, args, {cwd: process.cwd()})
