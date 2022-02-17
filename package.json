@@ -11,19 +11,19 @@
   "repository": "git+https://github.com/msikma/ytarc",
   "author": "Michiel Sikma <michiel@sikma.org>",
   "license": "MIT",
-  "scripts": {
-  },
+  "scripts": {},
   "bin": {
     "ytarc": "cli/index.js"
   },
   "engines": {
     "node": ">=10.0.0"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "dependencies": {
-    "fast-glob": "^3.2.7",
     "argparse": "^2.0.1",
-    "chalk": "^3.0.0"
+    "chalk": "^3.0.0",
+    "fast-glob": "^3.2.7",
+    "rmfr": "^2.0.0",
+    "tempy": "^1.0.1"
   }
 }
