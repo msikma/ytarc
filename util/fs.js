@@ -3,7 +3,20 @@
 
 const fs = require('fs').promises
 const constants = require('fs')
+const mv = require('mv')
 const {wrapInArray} = require('./data')
+
+/**
+ * Moves a file or directory from one place to the other.
+ */
+const moveFile = (src, dst) => new Promise((resolve, reject) => {
+  mv(src, dst, {mkdirp: true}, function(err) {
+    if (err) {
+      return reject(err)
+    }
+    return resolve()
+  });
+})
 
 /**
  * Ensures that a given list of paths all exist.
@@ -42,6 +55,7 @@ const fileIsReadable = filepath => fileAccessCheck(filepath, constants.R_OK)
 
 module.exports = {
   ensureDir,
+  moveFile,
   fileAccessCheck,
   fileExists,
   fileIsWritable,

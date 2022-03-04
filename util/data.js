@@ -16,6 +16,9 @@ const isArray = Array.isArray
 /** Flips the keys/values of an object. */
 const objectFlip = obj => Object.fromEntries(Object.entries(obj).map(([k, v]) => [v, k]))
 
+/** Returns only unique items of an array. */
+const arrayUniq = arr => [...new Set(arr)]
+
 /** Checks if a string matches against any regular expression in an array.  */
 const matchesAny = (str, re, resultIfEmpty = false) => {
   if (re.length === 0) return resultIfEmpty
@@ -27,6 +30,7 @@ module.exports = {
   arrayWrap,
   objectFlip,
   matchesAny,
+  arrayUniq,
   isString,
   isArray
 }
