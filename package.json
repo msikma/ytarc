@@ -1,6 +1,6 @@
 {
   "name": "ytarc",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Helper script for running yt-dlp for archiving purposes",
   "private": true,
   "keywords": [
