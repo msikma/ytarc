@@ -12,6 +12,15 @@
   "author": "Michiel Sikma <michiel@sikma.org>",
   "license": "MIT",
   "scripts": {},
+  "files": [
+    "index.js",
+    "lib/",
+    "cli/",
+    "util/",
+    "package.json",
+    "license.md",
+    "readme.md"
+  ],
   "bin": {
     "ytarc": "cli/index.js"
   },
