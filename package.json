@@ -30,6 +30,10 @@
   "devDependencies": {},
   "dependencies": {
     "argparse": "^2.0.1",
+    "lodash.clonedeep": "^4.5.0",
+    "cheerio": "^1.0.0-rc.10",
+    "mime-types": "^2.1.35",
+    "node-fetch": "^2.6.7",
     "chalk": "^3.0.0",
     "fast-glob": "^3.2.7",
     "mv": "^2.1.1",

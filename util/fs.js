@@ -1,6 +1,7 @@
 // ytarc <https://github.com/msikma/ytarc>
 // © MIT license
 
+const path = require('path')
 const fs = require('fs').promises
 const constants = require('fs')
 const mv = require('mv')
@@ -15,6 +16,34 @@ const moveFile = (src, dst) => new Promise((resolve, reject) => {
       return reject(err)
     }
     return resolve()
+  });
+})
+
+/**
+ * Moves a file or directory from one place to the other with fallback if the target already exists.
+ * 
+ * If the target already exists, we will add "2", then "3", etc. at the end of the target filename.
+ */
+const moveFileFallback = (src, dst) => new Promise(async (resolve, reject) => {
+  let n = 1
+  let freeDst = dst
+  while (true) {
+    const dstPath = path.parse(dst)
+    if (await fileExists(freeDst)) {
+      if (n > 100) {
+        break
+      }
+      n += 1
+      freeDst = `${dstPath.dir}/${dstPath.name} ${n}${dstPath.ext}`
+      continue
+    }
+    break
+  }
+  mv(src, freeDst, {mkdirp: true}, function(err) {
+    if (err) {
+      return reject(err)
+    }
+    return resolve(freeDst)
   });
 })
 
@@ -56,6 +85,7 @@ const fileIsReadable = filepath => fileAccessCheck(filepath, constants.R_OK)
 module.exports = {
   ensureDir,
   moveFile,
+  moveFileFallback,
   fileAccessCheck,
   fileExists,
   fileIsWritable,
