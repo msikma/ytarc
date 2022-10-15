@@ -1,5 +1,7 @@
 # Development files
 _source/
+_/
+_*.js
 
 # Logs
 npm-debug.log*
