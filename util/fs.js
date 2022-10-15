@@ -5,7 +5,18 @@ const path = require('path')
 const fs = require('fs').promises
 const constants = require('fs')
 const mv = require('mv')
+const filenamify = require('filenamify')
 const {wrapInArray} = require('./data')
+
+/**
+ * Cleans a string so that it can be used as a filename.
+ */
+const sanitizeFilename = fn => {
+  // One exception: replace colon followed by whitespace with " - ".
+  const colonToDash = fn.replace(/([^\s]):(\s)/g, '$1 -$2')
+  // Run the rest through filenamify() and replace invalid characters with underscores.
+  return filenamify(colonToDash, {replacement: '_'})
+}
 
 /**
  * Moves a file or directory from one place to the other.
@@ -84,6 +95,7 @@ const fileIsReadable = filepath => fileAccessCheck(filepath, constants.R_OK)
 
 module.exports = {
   ensureDir,
+  sanitizeFilename,
   moveFile,
   moveFileFallback,
   fileAccessCheck,
